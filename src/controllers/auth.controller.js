@@ -87,3 +87,8 @@ export const POST_login = async (req, res) => {
     res.send('logged in');
   });
 };
+
+export const POST_logout = (req, res) => {
+  res.clearCookie('token');
+  res.send('logged out');
+};
