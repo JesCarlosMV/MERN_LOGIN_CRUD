@@ -6,6 +6,7 @@ appServer.listen(3000, () => {
 });
 
 appServer.use(Express.json()); // para que el server entienda json en las peticiones, sino el req.body es undefined
+appServer.use(Express.urlencoded({ extended: true })); // para que el server entienda los datos de los formularios x-www-form-urlencoded
 
 import mongoose from 'mongoose'; // Mongoose para conectarse a MongoDB
 
