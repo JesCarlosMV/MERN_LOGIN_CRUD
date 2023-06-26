@@ -6,6 +6,7 @@
   4º se procede a hacer lo que se quiere */
 
 import User from '../models/users.model.js';
+import bcrypt from 'bcryptjs';
 
 export const POST_register = (req, res) => {
   const { nick, email, password } = req.body;
@@ -13,13 +14,17 @@ export const POST_register = (req, res) => {
   if (!nick || !email || !password)
     return res.status(400).json({ msg: 'Please, send all fields' });
 
-  User.find({ email: email }).then((user) => {
+  User.find({ email: email }).then(async (user) => {
     if (user.length > 0) {
       return res.status(400).json({ msg: 'The email already exists' });
     } else {
-      const newUser = new User({ nick, email, password });
+      const newUser = new User({
+        nick,
+        email,
+        password: await bcrypt.genSalt(10), // encriptamos la contraseña
+      });
       newUser.save();
-      res.send('User saved');
+      res.send('user saved \n' + newUser);
     }
   });
 };
