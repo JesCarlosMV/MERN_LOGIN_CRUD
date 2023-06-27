@@ -82,13 +82,18 @@ export const POST_login = async (req, res) => {
       expiresIn: 3600,
     });
 
-    res.cookie(token, 'token'); // guardamos el token en una cookie para que el cliente lo pueda usar
+    res.cookie('token', token); // guardamos el token en una cookie para que el cliente lo pueda usar
 
     res.send('logged in');
   });
 };
 
 export const POST_logout = (req, res) => {
-  res.clearCookie('token');
-  res.status(200).send('logged out and cookie Token deleted');
+  res.cookie('token', '', { expires: new Date(0) }); // borramos la cookie del cliente
+
+  return res.status(200).send('logged out and cookie Token deleted');
+};
+
+export const POST_AUTH_profile = async (req, res) => {
+  res.send('profile');
 };
