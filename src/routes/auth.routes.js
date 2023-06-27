@@ -14,7 +14,6 @@ router.post('/register', POST_register);
 router.post('/login', POST_login);
 router.post('/logout', POST_logout);
 router.post('/profile', validateToken, POST_AUTH_profile);
-
 router.delete('/register', DELETE_register);
 
 export default router;
