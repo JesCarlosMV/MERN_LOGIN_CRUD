@@ -90,5 +90,5 @@ export const POST_login = async (req, res) => {
 
 export const POST_logout = (req, res) => {
   res.clearCookie('token');
-  res.send('logged out');
+  res.status(200).send('logged out and cookie Token deleted');
 };
