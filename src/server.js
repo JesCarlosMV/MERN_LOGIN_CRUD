@@ -1,7 +1,8 @@
-import Express from 'express'; // Servidor de Express
+import Express from 'express';
 
-const appServer = Express();
+const appServer = Express(); // Servidor de Express
 appServer.listen(3000, () => {
+  // Servidor de Express escuchando en puerto 3000
   console.log(`====> Server running on port 3000`);
 });
 
@@ -32,6 +33,7 @@ const conectDB = async () => {
 
 conectDB();
 
-import { router } from './routes/auth.routes.js'; // importamos el router con las rutas de la app y la usamos en el server
-
-appServer.use('/api/', router);
+import router from './routes/auth.routes.js'; // router con las rutas de la app
+import routerTask from './routes/task.routes.js'; // router con las rutas de las tareas
+appServer.use('/api', router);
+appServer.use('/api', routerTask);

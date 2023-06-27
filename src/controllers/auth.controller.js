@@ -1,4 +1,4 @@
-/* TODAS LAS RUTAS FUNCIONAN CON EMAIL PORQUE ES UNICO 
+/* TODAS LAS FUNCIONES FUNCIONAN CON EMAIL PORQUE ES UNICO 
 
   1º se desestructura el req.body para obtener los datos que se envian desde el cliente 
   2º se comprueba que los campos existan 
