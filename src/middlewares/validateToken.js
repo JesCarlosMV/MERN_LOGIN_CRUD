@@ -3,6 +3,7 @@ import { KEYTOKEN } from '../libs/auxJwt.js';
 
 export const validateToken = (req, res, next) => {
   console.log('\tValidating token..\n');
+
   const { token } = req.cookies;
 
   if (!token)
