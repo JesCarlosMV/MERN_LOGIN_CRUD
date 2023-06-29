@@ -8,7 +8,7 @@ import {
   POST_AUTH_profile,
 } from '../controllers/auth.controller.js';
 
-const router = Router(); // creamos el router para las rutas de la app y lo exportamos para usarlo en el server
+const router = Router(); // router para las rutas de la app y lo exportamos para usarlo en el server
 
 router.post('/register', POST_register);
 router.post('/login', POST_login);
