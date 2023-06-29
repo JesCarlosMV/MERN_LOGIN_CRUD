@@ -17,6 +17,7 @@ export const addTask = (req, res) => {
   });
 
   newTask.save();
+  console.log(newTask);
 };
 
 export const deleteTask = (req, res) => {};
