@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { validateToken } from '../middlewares/validateToken.js';
 import {
   POST_register,
   POST_login,
@@ -6,7 +7,6 @@ import {
   POST_logout,
   POST_AUTH_profile,
 } from '../controllers/auth.controller.js';
-import { validateToken } from '../middlewares/validateToken.js';
 
 const router = Router(); // creamos el router para las rutas de la app y lo exportamos para usarlo en el server
 
